@@ -192,7 +192,7 @@ body {
 
 /* Hero */
 .hero {
-    margin-top: 80px;
+    margin-top: 100px;
     position: relative;
     min-height: 90vh;
     background: linear-gradient(135deg, rgba(30,63,32,0.85), rgba(46,204,113,0.75)), url('https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=1920');
