@@ -215,7 +215,7 @@ body {
 }
 
 .hero-badge {
-    margin-top: 30px;
+    margin-top: 50px;
     display: inline-block;
     background: rgba(255,255,255,0.2);
     backdrop-filter: blur(8px);
