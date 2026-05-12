@@ -1,0 +1,123 @@
+<!-- contact.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Fruitify</title>
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/415/415682.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"><i class="fas fa-apple-alt" style="color: red;"></i></div>
+                    <span>Fruitify</span>
+                </a>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="shop.html" class="nav-link">Shop</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="contact.html" class="nav-link active">Contact</a>
+                </nav>
+                <div class="header-actions">
+                    <button class="icon-btn" id="wishlistBtn"><i class="fas fa-heart"></i><span class="badge" id="wishlistCount">0</span></button>
+                    <button class="icon-btn" id="cartBtn"><i class="fas fa-shopping-cart"></i><span class="badge" id="cartCount">0</span></button>
+                    <button class="icon-btn" id="userBtn"><i class="fas fa-user"></i></button>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+                </div>
+            </div>
+        </div>
+        <div id="mobileMenu" class="mobile-menu hidden">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="contact-hero">
+            <div class="container">
+                <h1>Get In Touch</h1>
+                <p>We'd love to hear from you</p>
+            </div>
+        </div>
+
+        <div class="container contact-container">
+            <div class="contact-grid">
+                <div class="contact-form-container">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" id="contactName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="contactEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Subject</label>
+                            <select id="contactSubject">
+                                <option>General Inquiry</option>
+                                <option>Order Support</option>
+                                <option>Wholesale</option>
+                                <option>Partnership</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea id="contactMessage" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Send Message</button>
+                    </form>
+                </div>
+
+                <div class="contact-info">
+                    <div>
+                        <h3>Contact Information</h3>
+                        <div class="info-item"><i class="fas fa-envelope"></i> <strong>Email</strong><br>hello@fruitify.com</div>
+                        <div class="info-item"><i class="fas fa-phone"></i> <strong>Phone</strong><br>1-800-FRUITIFY</div>
+                        <div class="info-item"><i class="fas fa-map-marker-alt"></i> <strong>Address</strong><br>123 Orchard Lane<br>San Francisco, CA 94102</div>
+                    </div>
+                    <div>
+                        <h3>Business Hours</h3>
+                        <div>Monday - Friday: 7am - 9pm PST</div>
+                        <div>Saturday - Sunday: 8am - 8pm PST</div>
+                    </div>
+                    <div class="quick-response">
+                        <h4>Quick Response Times</h4>
+                        <div><i class="fas fa-check"></i> Email: Within 2 hours</div>
+                        <div><i class="fas fa-check"></i> Phone: Immediate</div>
+                        <div><i class="fas fa-check"></i> Chat: Under 1 minute</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div><div class="footer-logo"><i class="fas fa-apple-alt"></i> Fruitify</div><p>Nature's candy, delivered daily.</p></div>
+                <div><h4>Shop</h4><a href="shop.html">All Fruits</a></div>
+                <div><h4>Company</h4><a href="about.html">About Us</a></div>
+                <div><h4>Support</h4><a href="contact.html">Contact</a></div>
+            </div>
+            <div class="footer-bottom">© 2024 Fruitify. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <div id="toast" class="toast hidden"></div>
+
+    <script src="js/data.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/wishlist.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+</html>

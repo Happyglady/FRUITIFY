@@ -1,0 +1,168 @@
+<!-- wishlist.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Wishlist - Fruitify</title>
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/415/415682.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .wishlist-item {
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        .wishlist-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .wishlist-image {
+            aspect-ratio: 1;
+            width: 100%;
+            object-fit: cover;
+        }
+        .wishlist-info {
+            padding: 20px;
+        }
+        .wishlist-name {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .wishlist-price {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--deep-green);
+        }
+        .empty-wishlist {
+            text-align: center;
+            padding: 80px 20px;
+        }
+        .empty-wishlist-icon {
+            font-size: 80px;
+            margin-bottom: 24px;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"><i class="fas fa-apple-alt" style="color: red;"></i></div>
+                    <span>Fruitify</span>
+                </a>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="shop.html" class="nav-link">Shop</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </nav>
+                <div class="header-actions">
+                    <button class="icon-btn" id="wishlistBtn"><i class="fas fa-heart"></i><span class="badge" id="wishlistCount">0</span></button>
+                    <button class="icon-btn" id="cartBtn"><i class="fas fa-shopping-cart"></i><span class="badge" id="cartCount">0</span></button>
+                    <button class="icon-btn" id="userBtn"><i class="fas fa-user"></i></button>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+                </div>
+            </div>
+        </div>
+        <div id="mobileMenu" class="mobile-menu hidden">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </header>
+
+    <main style="padding-top: 100px; min-height: 100vh;">
+        <div class="container">
+            <h1 style="font-size: 48px; margin-bottom: 32px;">Your Wishlist</h1>
+            <div id="wishlistContainer" class="product-grid">
+                <!-- Wishlist items will be loaded here -->
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div><div class="footer-logo"><i class="fas fa-apple-alt"></i> Fruitify</div><p>Nature's candy, delivered daily.</p></div>
+                <div><h4>Shop</h4><a href="shop.html">All Fruits</a></div>
+                <div><h4>Company</h4><a href="about.html">About Us</a></div>
+                <div><h4>Support</h4><a href="contact.html">Contact</a></div>
+            </div>
+            <div class="footer-bottom">© 2024 Fruitify. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <div id="toast" class="toast hidden"></div>
+
+    <script src="js/data.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/wishlist.js"></script>
+    <script>
+        function renderWishlist() {
+            const container = document.getElementById('wishlistContainer');
+            const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            
+            if (wishlist.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-wishlist" style="grid-column: span 3;">
+                        <div class="empty-wishlist-icon"><i class="fas fa-heart"></i></div>
+                        <h2 style="font-size: 32px; margin-bottom: 16px;">Your wishlist is empty</h2>
+                        <p style="color: #666; margin-bottom: 32px;">Save your favorite fruits for later!</p>
+                        <a href="shop.html" class="btn-primary">Discover Fruits</a>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = wishlist.map(product => `
+                <div class="wishlist-item">
+                    <img src="${product.image}" class="wishlist-image" alt="${product.name}">
+                    <div class="wishlist-info">
+                        <div class="wishlist-name">${product.name}</div>
+                        <div style="font-size: 14px; color: #666; margin-bottom: 8px;">${product.farm}</div>
+                        <div class="wishlist-price">${formatPrice(product.price)}<span style="font-size: 14px;">/lb</span></div>
+                        <div style="display: flex; gap: 12px; margin-top: 16px;">
+                            <button class="btn-primary" style="flex: 1; padding: 10px;" onclick="addToCartAndRefresh(${product.id})">Add to bowl</button>
+                            <button class="remove-btn" style="background: none; border: 2px solid var(--berry); color: var(--berry); padding: 10px 16px; border-radius: 50px; cursor: pointer;" onclick="removeFromWishlistAndRefresh(${product.id})">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function addToCartAndRefresh(productId) {
+            addToCart(productId);
+            showToast('Added to bowl!');
+            updateBadges();
+        }
+        
+        function removeFromWishlistAndRefresh(productId) {
+            let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            wishlist = wishlist.filter(item => item.id !== productId);
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+            renderWishlist();
+            updateBadges();
+            showToast('Removed from wishlist');
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            renderWishlist();
+            updateBadges();
+            
+            const wishlistBtn = document.getElementById('wishlistBtn');
+            const cartBtn = document.getElementById('cartBtn');
+            if (wishlistBtn) wishlistBtn.addEventListener('click', () => window.location.href = 'wishlist.html');
+            if (cartBtn) cartBtn.addEventListener('click', () => window.location.href = 'cart.html');
+        });
+    </script>
+</body>
+</html>

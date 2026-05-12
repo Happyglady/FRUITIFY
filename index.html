@@ -1,0 +1,282 @@
+<!-- index.html - Home page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruitify - Nature's candy, delivered daily</title>
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/415/415682.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"><i class="fas fa-apple-alt" style="color: red;"></i></div>
+                    <span>Fruitify</span>
+                </a>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link active">Home</a>
+                    <a href="shop.html" class="nav-link">Shop</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </nav>
+                <div class="header-actions">
+                    <div class="search-container">
+                        <input type="text" id="searchInput" placeholder="Search fruits...">
+                        <span class="search-icon"><i class="fas fa-search"></i></span>
+                        <div id="searchDropdown" class="search-dropdown"></div>
+                    </div>
+                    <button class="icon-btn" id="wishlistBtn">
+                        <i class="fas fa-heart"></i>
+                        <span class="badge" id="wishlistCount">0</span>
+                    </button>
+                    <button class="icon-btn" id="cartBtn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="badge" id="cartCount">0</span>
+                    </button>
+                    <button class="icon-btn" id="userBtn"><i class="fas fa-user"></i></button>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+                </div>
+            </div>
+        </div>
+        <div id="mobileMenu" class="mobile-menu hidden">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                
+                <h1>Nature's candy, delivered daily.</h1>
+                <p>Farm-fresh, hand-picked fruits at peak ripeness. From orchard to your doorstep in record time with our cold-chain guarantee.</p>
+                <div class="hero-buttons">
+                    <a href="shop.html" class="btn-primary">Shop Fresh Picks</a>
+                    <a href="#seasonal" class="btn-secondary">See What's In Season</a>
+                </div>
+                <div class="stats">
+                    <div class="stat-card">
+                        <div class="stat-number" id="ordersToday">1,247</div>
+                        <div>Orders Today</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="freshnessScore">98.7%</div>
+                        <div>Freshness Score</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="farmCount">47</div>
+                        <div>Partner Farms</div>
+                    </div>
+                </div>
+                <div class="hero-badge"><i class="fas fa-sparkles"></i> Fresh picks delivered in 2 hours</div>
+            </div>
+        </section>
+
+        <!-- Sustainability Ticker -->
+        <div class="ticker">
+            <div class="ticker-track">
+                <span><i class="fas fa-leaf"></i> 100% Plastic-Free Packaging</span>
+                <span><i class="fas fa-truck"></i> Carbon Neutral Delivery</span>
+                <span><i class="fas fa-handshake"></i> Fair Trade Certified</span>
+                <span><i class="fas fa-recycle"></i> Zero Food Waste Initiative</span>
+                <span><i class="fas fa-leaf"></i> 100% Plastic-Free Packaging</span>
+                <span><i class="fas fa-truck"></i> Carbon Neutral Delivery</span>
+                <span><i class="fas fa-handshake"></i> Fair Trade Certified</span>
+                <span><i class="fas fa-recycle"></i> Zero Food Waste Initiative</span>
+            </div>
+        </div>
+
+        <!-- Fruit by Mood -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Pick Your Mood</h2>
+                    <p>What are you craving today?</p>
+                </div>
+                <div class="mood-grid" id="moodGrid">
+                    <div class="mood-card" data-mood="energetic">
+                        <img src="https://c8.alamy.com/comp/AB1E69/oranges-and-bananas-AB1E69.jpg" alt="Energetic mood" class="mood-image">
+                        <h3>Energetic</h3><p>Bananas, Oranges</p>
+                    </div>
+                    <div class="mood-card" data-mood="refreshing">
+                        <img src="https://www.allrecipes.com/thmb/8H2Aw4-iMPwDabBSN_sE4E5Zqnk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/5494999-0ce45e21a1484afcac3ba9ee99860a07.jpg" alt="Refreshing mood" class="mood-image">
+                        <h3>Refreshing</h3><p>Watermelon, Grapes</p>
+                    </div>
+                    <div class="mood-card" data-mood="indulgent">
+                        <img src="https://wymanscanada.com/wp-content/uploads/BlueberriesStrawberriesMango_cue-400x223.jpg" alt="Indulgent mood" class="mood-image">
+                        <h3>Indulgent</h3><p>Berries, Mangoes</p>
+                    </div>
+                    <div class="mood-card" data-mood="healthy">
+                        <img src="https://californiaavocado.com/wp-content/uploads/2023/04/avocado-kiwi-smoothie-scaled-e1681082359825.jpeg" alt="Healthy mood" class="mood-image">
+                        <h3>Healthy</h3><p>Kiwi, Avocado</p>
+                    </div>
+                    <div class="mood-card" data-mood="exotic">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXw_bZlvY8hklm3mz0XS1bo-M7gVWwTSWgVQ&s" alt="Exotic mood" class="mood-image">
+                        <h3>Exotic</h3><p>Dragon Fruit, Lychee</p>
+                    </div>
+                    <div class="mood-card" data-mood="comfort">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEH6GIKlwyHaxdFCNP7fH0AZYQ45IRl4XnRg&s" alt="Comfort mood" class="mood-image">
+                        <h3>Comfort</h3><p>Apples, Pears</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seasonal Spotlight -->
+        <section id="seasonal" class="section bg-cream">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Seasonal Spotlight</h2>
+                    <p>Peak flavor, limited time</p>
+                </div>
+                <div class="carousel-container">
+                    <button class="carousel-btn prev" id="carouselPrev"><i class="fas fa-chevron-left"></i></button>
+                    <div class="carousel-track" id="carouselTrack"></div>
+                    <button class="carousel-btn next" id="carouselNext"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best for Gifting -->
+        <section class="section">
+            <div class="container">
+                <div class="gifting-grid">
+                    <div class="gifting-content">
+                        <span class="tag">Curated Collections</span>
+                        <h2>Best for Gifting</h2>
+                        <p>Thoughtfully assembled fruit hampers that make perfect gifts. Each box is hand-packed with the season's finest and comes with a personalized note.</p>
+                        <div class="features">
+                            <div><i class="fas fa-gift"></i> <strong>Premium Presentation</strong><br>Elegant boxes with sustainable bamboo packaging</div>
+                            <div><i class="fas fa-calendar"></i> <strong>Scheduled Delivery</strong><br>Choose exact date & time for special occasions</div>
+                            <div><i class="fas fa-pen"></i> <strong>Personal Message</strong><br>Handwritten note included with every gift</div>
+                        </div>
+                        <a href="shop.html" class="btn-primary">Browse Gift Hampers</a>
+                    </div>
+                    <div class="gifting-images">
+                        <img src="https://images.unsplash.com/photo-1595475207225-428b62bda831?w=400" alt="Gift hamper">
+                        <img src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=400" alt="Fruit basket">
+                        <img src="https://images.unsplash.com/photo-1519996529931-28324d5a630e?w=400" alt="Premium fruits">
+                        <img src="https://images.unsplash.com/photo-1619546813926-a78fa6372cd2?w=400" alt="Gift box">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="section bg-cream">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Loved By Thousands</h2>
+                    <p>Join 50,000+ happy customers</p>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial">
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p>"The mangoes were perfectly ripe and so sweet! Delivery was incredibly fast."</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" alt="Gladys">
+                            <div><strong>Gladys Praise</strong><br>Verified Buyer</div>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p>"Best fruit subscription I've ever had. The quality is consistently amazing."</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" alt="Mafabi">
+                            <div><strong>Mafabi Daniel</strong><br>Monthly Subscriber</div>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p>"Sent a gift hamper to my mom for Mother's Day and she absolutely loved it."</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop" alt="Namagembe">
+                            <div><strong>Namagembe Dapne</strong><br>Gift Sender</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="newsletter">
+            <div class="container">
+                <h2>Join The Fruitify Family</h2>
+                <p>Get 15% off your first order + weekly recipes, seasonal picks, and exclusive deals</p>
+                <form id="newsletterForm">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Get 15% Off</button>
+                </form>
+                <small>No spam, unsubscribe anytime. We respect your inbox.</small>
+            </div>
+        </section>
+
+        <!-- Trust Badges -->
+        <section class="trust-badges">
+            <div class="container">
+                <div><i class="fas fa-check"></i> 100% Organic</div>
+                <div><i class="fas fa-truck"></i> Free Delivery Ugx 185,000+</div>
+                <div><i class="fas fa-sync"></i> Freshness Guarantee</div>
+                <div><i class="fas fa-clock"></i> 2-Hour Delivery</div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo"><i class="fas fa-apple-alt" style="color: red;"></i> Fruitify</div>
+                    <p>Nature's candy, delivered daily. Farm-fresh fruits at peak ripeness.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/fruitify" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/fruitify" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://twitter.com/fruitify" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.tiktok.com/@fruitify" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.youtube.com/@fruitify" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://wa.me/256700000000" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Shop</h4>
+                    <a href="shop.html">All Fruits</a>
+                    <a href="#">Seasonal</a>
+                    <a href="#">Gift Hampers</a>
+                </div>
+                <div>
+                    <h4>Company</h4>
+                    <a href="about.html">About Us</a>
+                    <a href="#">Careers</a>
+                </div>
+                <div>
+                    <h4>Support</h4>
+                    <a href="#">FAQ</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="#">Track Order</a>
+                </div>
+            </div>
+            <div class="footer-bottom">© 2024 Fruitify. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <!-- Toast -->
+    <div id="toast" class="toast hidden">Added to bowl!</div>
+
+    <script src="js/data.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/wishlist.js"></script>
+    <script src="js/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!-- about.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Fruitify</title>
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/415/415682.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"><i class="fas fa-apple-alt" style="color: red;"></i></div>
+                    <span>Fruitify</span>
+                </a>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="shop.html" class="nav-link">Shop</a>
+                    <a href="about.html" class="nav-link active">About</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </nav>
+                <div class="header-actions">
+                    <button class="icon-btn" id="wishlistBtn"><i class="fas fa-heart"></i><span class="badge" id="wishlistCount">0</span></button>
+                    <button class="icon-btn" id="cartBtn"><i class="fas fa-shopping-cart"></i><span class="badge" id="cartCount">0</span></button>
+                    <button class="icon-btn" id="userBtn"><i class="fas fa-user"></i></button>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+                </div>
+            </div>
+        </div>
+        <div id="mobileMenu" class="mobile-menu hidden">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="about-hero">
+            <div class="container">
+                <h1>Our Story</h1>
+                <p>From farm to fork, we're revolutionizing how you enjoy nature's candy</p>
+            </div>
+        </div>
+
+        <div class="container about-container">
+            <div class="about-story">
+                <div class="story-text">
+                    <h2>Born From A Simple Idea</h2>
+                    <p>In 2020, our founder Sarah was tired of choosing between convenience and quality. Supermarket fruits were bland, farmers markets were inconvenient, and delivery services lacked transparency.</p>
+                    <p>So we built Fruitify: a platform that connects you directly with farms, guarantees peak freshness, and delivers within hours — not days.</p>
+                    <p>Today, we partner with 47 farms across 12 countries, serve 50,000+ customers, and have saved over 2 million pounds of food from waste through our smart ripeness matching.</p>
+                </div>
+                <div class="story-image">
+                    <img src="https://www.independent.co.ug/wp-content/uploads/2017/04/fruit.jpg" alt="Farm">
+                </div>
+            </div>
+
+            <div class="values-section">
+                <h2>Our Values</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon"><i class="fas fa-leaf"></i></div>
+                        <h3>Sustainability First</h3>
+                        <p>Carbon-neutral delivery, plastic-free packaging, and zero food waste practices in every step.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon"><i class="fas fa-heart"></i></div>
+                        <h3>Farmer Partners</h3>
+                        <p>We pay 30% above market rates and sign year-long contracts to support sustainable farming.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon"><i class="fas fa-check"></i></div>
+                        <h3>Transparency</h3>
+                        <p>Track your fruit from farm to doorstep. See exactly where it grew and who picked it.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mission-section">
+                <h2>Join Our Mission</h2>
+                <p>We're not just selling fruit — we're building a more sustainable, transparent, and delicious food system.</p>
+                <a href="shop.html" class="btn-primary">Start Shopping</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div><div class="footer-logo"><i class="fas fa-apple-alt"></i> Fruitify</div><p>Nature's candy, delivered daily.</p></div>
+                <div><h4>Shop</h4><a href="shop.html">All Fruits</a></div>
+                <div><h4>Company</h4><a href="about.html">About Us</a></div>
+                <div><h4>Support</h4><a href="contact.html">Contact</a></div>
+            </div>
+            <div class="footer-bottom">© 2024 Fruitify. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <div id="toast" class="toast hidden"></div>
+
+    <script src="js/data.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/wishlist.js"></script>
+    <script src="js/about.js"></script>
+</body>
+</html>

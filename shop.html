@@ -1,0 +1,155 @@
+<!-- shop.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Fruitify</title>
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/415/415682.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"><i class="fas fa-apple-alt" style="color: red;"></i></div>
+                    <span>Fruitify</span>
+                </a>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="shop.html" class="nav-link active">Shop</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </nav>
+                <div class="header-actions">
+                    <div class="search-container">
+                        <input type="text" id="searchInput" placeholder="Search fruits...">
+                        <span class="search-icon"><i class="fas fa-search"></i></span>
+                        <div id="searchDropdown" class="search-dropdown"></div>
+                    </div>
+                    <button class="icon-btn" id="wishlistBtn"><i class="fas fa-heart"></i><span class="badge" id="wishlistCount">0</span></button>
+                    <button class="icon-btn" id="cartBtn"><i class="fas fa-shopping-cart"></i><span class="badge" id="cartCount">0</span></button>
+                    <button class="icon-btn" id="userBtn"><i class="fas fa-user"></i></button>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+                </div>
+            </div>
+        </div>
+        <div id="mobileMenu" class="mobile-menu hidden">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </header>
+
+    <main class="shop-main">
+        <div class="container shop-container">
+            <!-- Filters Sidebar -->
+            <aside class="filters-sidebar">
+                <div class="filters-card">
+                    <div class="filters-header">
+                        <h3>Filters</h3>
+                        <button id="clearFilters">Clear All</button>
+                    </div>
+                    <div class="filter-group">
+                        <h4>Price Range</h4>
+                        <input type="range" id="priceRange" min="0" max="100000" value="100000">
+                        <div class="price-range-values">
+                            <span>Ugx 0</span>
+                            <span id="priceValue">Ugx 100,000</span>
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <h4>Ripeness Level</h4>
+                        <label><input type="checkbox" value="ready"> Ready to Eat</label>
+                        <label><input type="checkbox" value="ripening"> Ripening Soon</label>
+                        <label><input type="checkbox" value="green"> Green</label>
+                    </div>
+                    <div class="filter-group">
+                        <h4>Origin</h4>
+                        <select id="originFilter">
+                            <option value="all">All Origins</option>
+                            <option value="local">Local Farms</option>
+                            <option value="mexico">Mexico</option>
+                            <option value="thailand">Thailand</option>
+                            <option value="italy">Italy</option>
+                            <option value="usa">USA</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label><input type="checkbox" id="organicFilter"> Organic Certified</label>
+                    </div>
+                    <div class="filter-group">
+                        <h4>Sugar Content</h4>
+                        <label><input type="radio" name="sugar" value="low"> Low Sugar</label>
+                        <label><input type="radio" name="sugar" value="medium"> Medium</label>
+                        <label><input type="radio" name="sugar" value="high"> High</label>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Product Grid -->
+            <div class="products-section">
+                <div class="products-header">
+                    <div>
+                        <h1>All Fruits</h1>
+                        <p><span id="productCount">0</span> products available</p>
+                    </div>
+                    <select id="sortSelect">
+                        <option value="featured">Featured</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="name">Name: A-Z</option>
+                    </select>
+                </div>
+                <div id="productGrid" class="product-grid"></div>
+            </div>
+        </div>
+
+        <!-- Compare Bar -->
+        <div id="compareBar" class="compare-bar hidden">
+            <div class="container compare-bar-inner">
+                <div class="compare-info">
+                    <span>Compare (<span id="compareCount">0</span>/3)</span>
+                    <div id="compareItems" class="compare-items"></div>
+                </div>
+                <div class="compare-actions">
+                    <button id="clearCompare">Clear</button>
+                    <button id="compareNow">Compare Now</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Product Detail Modal -->
+    <div id="productModal" class="modal hidden">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal"><i class="fas fa-times"></i></button>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div><div class="footer-logo"><i class="fas fa-apple-alt"></i> Fruitify</div><p>Nature's candy, delivered daily.</p></div>
+                <div><h4>Shop</h4><a href="shop.html">All Fruits</a></div>
+                <div><h4>Company</h4><a href="about.html">About Us</a></div>
+                <div><h4>Support</h4><a href="contact.html">Contact</a></div>
+            </div>
+            <div class="footer-bottom">© 2024 Fruitify. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <div id="toast" class="toast hidden"></div>
+
+    <script src="js/data.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/wishlist.js"></script>
+    <script src="js/shop.js"></script>
+</body>
+</html>
